@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Industrial ESP32</title>
+    <style>
+        /* =========================================
+           ESTILOS (CSS)
+           ========================================= */
+        :root {
+            /* COLOR DE FONDO ROSA SOLICITADO */
+            --fondo-pantalla: #ffb6c1; 
+            
+            /* Colores Industriales para los instrumentos */
+            --panel-fondo: #1e1e1e;
+            --texto-principal: #ffffff;
+            --led-apagado: #333333;
+            --led-verde: #00ff00;
+            --led-rojo: #ff0000;
+            --borde-azul: #00d9ff;
+            --borde-naranja: #ff9800;
+        }
+
+        body {
+            background-color: var(--fondo-pantalla);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            color: #333;
+        }
+
+        h1 {
+            color: #b71c1c; /* Rojo oscuro para contraste */
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            font-size: 24px;
+        }
+
+        h2 {
+            font-size: 16px;
+            color: #555;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+
+        /* Contenedor Flex para los paneles */
+        .dashboard {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Tarjetas de Control (Estilo Industrial Oscuro) */
+        .panel {
+            background-color: var(--panel-fondo);
+            border-radius: 15px;
+            padding: 25px;
+            width: 300px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            color: var(--texto-principal);
+            border-left: 5px solid; /* Borde de color para identificar */
+            position: relative;
+        }
+
+        .borde-azul { border-left-color: var(--borde-azul); }
+        .borde-naranja { border-left-color: var(--borde-naranja); }
+
+        .panel-titulo {
+            font-size: 18px;
+            font-weight: bold;
+            border-bottom: 1px solid #444;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        /* Estilos de los LEDs */
+        .led-container {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+        }
+
+        .led-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .led {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--led-apagado);
+            border: 2px solid #555;
+            box-shadow: inset 0 0 10px #000;
+            transition: all 0.3s;
+        }
+
+        .led-label {
+            margin-top: 8px;
+            font-size: 12px;
